@@ -1,0 +1,2 @@
+# Medical-diagnosis-using-fuzzy-logic
+A soft computing method based web project which helps in predicting the disease based on the symptoms of the patient. Also informs the patients about nearby doctors availability and precautions to be taken. The heart of the project is Fuzzy Logic , a soft computing technique which makes use of knowledge base made by the experts(doctors in this case) to predict the disease severity.
