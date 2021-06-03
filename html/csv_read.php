@@ -2,19 +2,23 @@
 <html>
  <head>
   <title>Testing Fuzzy System!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <script src="../js/jquery.js" type="text/javascript"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
  </head>
- <body>
+ <body style="background-color: skyblue;">
+
+	<div class= "inside2">
   <div class="container alert-info">
    
-    <h1 align="center">Testing Fuzzy System!</h1>
+    <h1 style ="align:center">Testing Fuzzy System!</h1>
    
   </div>
+
 
   <div class="">
       <br /> <br />
@@ -24,6 +28,7 @@
       <div id="add_here" class="container alert-info" style="display: none">
       </div>
   </div>
+</div>
  </body>
 </html>
 
@@ -55,7 +60,6 @@ function getAllSym()
        success:function(data)
        {
             make_array(data);
-            //console.log(sname.length);
        }
 
    });
@@ -69,8 +73,6 @@ function make_array(str)
         var ind = ar[i].indexOf(',');
         sname[i] = ar[i].substring(0,ind);
         fv[i] = ar[i].substring(ind+1,ar[i].length).split(',');
-        //console.log(sname[i]+" "+fv[i]);
-         //console.log(fv[i][0]);
     }
     handle_csv();
 }
@@ -87,14 +89,12 @@ function handle_csv()
            {
               
               var lines = data.split(/\r?\n|\r/);
-              //alert(employee_data[0].split(',').length);
               for(var count = 0; count<lines.length; count++)
               {
                 var cell_data = lines[count].split(",");
                 arr_2d.push(cell_data);
               }
-              //alert(arr_2d.length-1);
-
+    
               for(var i=0; i<arr_2d.length-1; i++)
               {
                   var cur_row = '';
@@ -113,13 +113,13 @@ function handle_csv()
                              if(sname[k] === csv_columns[j])
                              {
                                   var cur_fv = fv[k];
-                                  //console.log(cur_fv.length);
+
                                   for(var f=0; f<cur_fv.length; f++)
                                   {
                                       var minmax = cur_fv[f].split('-');
                                       var min = parseFloat(minmax[0]);
                                       var max = parseFloat(minmax[1]);
-                                      //console.log(min+"***********"+max);
+                                
                                       if(cur >= min && cur <= max)
                                       {
                                           cur_row += csv_columns[j]+','+cur_fv[f];
@@ -156,10 +156,6 @@ function handle_csv()
 
 
               $(e).append(tb1+r1+r2+r3+tb2);
-              // $(e).append('<br><br><b>True Positive : </b>'+TP);
-              // $(e).append('<br><br><b>True Negative : </b>'+TN);
-              // $(e).append('<br><br><b>False Positive : </b>'+FP);
-              // $(e).append('<br><br><b>False Negative : </b>'+FN);
               $(e).append('<br><br><b>Accuracy : </b>'+(((TP+TN)/(arr_2d.length-1)*100).toFixed(2) + '%'));
               $(e).append('<br><br><b>True Positive Rate(Sensitivity) : </b>'+(((TP)/actual_yes)*100).toFixed(2) + '%');
               $(e).append('<br><br><b>False Positive Rate : </b>'+(((FP)/actual_no)*100).toFixed(2) + '%');
@@ -169,12 +165,7 @@ function handle_csv()
               $(e).append('<br><br><b>Prevalence : </b>'+(((actual_yes/(arr_2d.length-1)))*100).toFixed(2) + '%');
 
               $(e).show();
-//              console.log(TP+"   "+TN+"   "+FP+"    "+FN);
               console.log("total match = "+(c/(arr_2d.length-1)));
-              // console.log(mean(zero));
-              // console.log(median(zero));
-              // console.log(mean(one));
-              // console.log(median(one));
               $("#LoadingImage").hide();
             }
         });
@@ -248,29 +239,19 @@ function mean(numbers) {
     
     return parseFloat(total / numbers.length);
 }
- 
-/**
- * The "median" is the "middle" value in the list of numbers.
- *
- * @param {Array} numbers An array of numbers.
- * @return {Number} The calculated median value from the specified numbers.
- */
+
 function median(numbers) {
-    // median of [3, 5, 4, 4, 1, 1, 2, 3] = 3
     var median = 0, numsLen = parseFloat(numbers.length);
     numbers.sort();
  
     if (numsLen % 2 === 0 ) {
-        // average of two middle numbers
         median = parseFloat((parseFloat(numbers[numsLen / 2 - 1]) + parseFloat(numbers[numsLen / 2])) / 2);
-    } else { // is odd
-        // middle number only
+    } else { 
         median = parseFloat(numbers[(numsLen - 1) / 2]);
     }
  
     return median;
 }
-
 
 $(document).ready(function(){
   getAllSym();

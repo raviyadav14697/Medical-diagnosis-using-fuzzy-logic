@@ -3,12 +3,11 @@
 <meta charset="utf-8" />
 <head>
 	<title>Add Disease</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<script src="../js/jquery.js" type="text/javascript"></script>
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
-
-
-	<link rel="stylesheet" type="text/css" href="../css/add_disease.css">
+	<link rel="stylesheet" type="text/css" href="../css/basic style.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
@@ -56,8 +55,6 @@
 
 		function disease_data(e)
 		{
-					//alert(e.id);
-					//$('#add_here').append(e.id);
 					disease_info(e.id);
 		}
 
@@ -66,17 +63,13 @@
 					var row = '';
 					var fi = '';
 					var a = str.split('/');
-					//alert(a.length);
 					for(var i=0;i<a.length-1;i++)
 					{
 							row = a[i].split('|');
-							//alert(row);
 							fi += f3(i ,row);
 
 					}
-					//alert(final);
 					$('#disease_info').html(fi);
-					//$(window).scrollTop($('#disease_info').offset().top);
 					$('html, body').animate({
 							 scrollTop: $("#disease_info").offset().top
 				    }, 2000);
@@ -96,14 +89,12 @@
 			var fuzzy = rows[4].split(',');
 
 			var effect = rows[6].split(',');
-			//alert(fuzzy);
 			var s = '';
 			for(var i=0; i<fuzzy.length;i++)
 			{
 					s += '<tr><td>'+(parseInt(i)+1)+'</td>'+tuple1 + fuzzy[i]  + tuple2 + eff[parseInt(effect[i])-1]+'"></td></tr>';
 			}
 			var tp = (name+tb1+s+tb2);
-			//alert(tp);
 			return tp;
 		}
 
@@ -111,27 +102,25 @@
 
 </head>
 
-<body>
+<body style="background-color: skyblue;">
 
-
-
-      <div class="container" id="add_here">
+	<div class= "inside2">
+	<div class="container" id="add_here">
 					<div class="alert alert-info">
 							<?php session_start(); ?>
 							<?php echo "Hello, ".$_SESSION['demail']. "!" ?>
 							<?php if(!isset($_SESSION['demail'])) header('location:disease_prediction_system.php'); ?>
-
-							<a class=" btn btn-primary col-md-offset-10" href="../php/logout.php" >Logout</a>
+							<a class=" btn btn-danger col-md-offset-10" href="../php/logout.php" >Logout</a>
 							<br>
-							
 					</div>
       </div>
-
-      <div class="container"><a href="add_disease.php" class="btn btn-primary">Add new disease!</a></div>
+	
+      <div class="container"><a href="add_disease.php" class="btn btn-success">Add new disease!</a></div>
 
 			<div class="container" id="disease_info">
 
       </div>
+	</div>
 
 </body>
 

@@ -10,7 +10,6 @@
     {
         $did = $row['did'];
     }
-    //echo $did;
     $q1 = "select did,s.sid,sname,weight,fuzzy_set,range_value,fv from mapping as m, symptom as s where s.sid = m.sid and did ='".$did."'";
     $res = mysqli_query($con,$q1);
     $no = mysqli_num_rows($res);

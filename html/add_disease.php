@@ -7,51 +7,54 @@
 	<script src="../js/jquery.js" type="text/javascript"></script>
 	<script src="../js/add_disease.js" type="text/javascript"></script>
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/basic style.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 
-	<style type="text/css">
-			.vertical-gap{
-				margin-top: 40px;
-			}
-	</style>
-
 </head>
 
-<body>
+<body style="background-color: skyblue;">
 
-			<div class="container">
-					<div class="alert alert-info">
+	<div class= "inside2">
+				<div class="alert alert-info">
 							<?php session_start(); ?>
 							<?php echo "Hello, ".$_SESSION['demail']."!" ;?>
 							<?php if(!isset($_SESSION['demail'])) header('location:disease_prediction_system.php'); ?>
-							<a class=" btn btn-primary col-md-offset-10" href="../php/logout.php" >Logout</a>
-							<h1>Disease Knowledge Base</h1>
+							<a class=" btn btn-danger col-md-offset-10" href="../php/logout.php" >Logout</a>
 					</div>
+
+			<div class="container">
+					
+					<h1><b>Disease Knowledge Base</b></h1>
 			</div>
 
+			<br><br>
 
 		<div class="container vertical-gap" >
+		<div class="jumbotron" style="background-color: transparent; border: 2px solid black;">
 			<div class="row container">
-				<h4>Disease Details</h4>
+				<h4 ><u>Disease Details<u></h4>
 			</div>
+			<br>
 			<div class="row">
 				<div class="dname col-md-2 "> <!-- col-md-offset-2 -->
-					<input type="text" name="dname" placeholder="Enter Disease Name" class="form-control input-group-lg " id="dname" autofocus>
+					<input type="text" name="dname" placeholder="Disease Name" class="form-control input-group-lg " id="dname" autofocus>
 				</div>
 				<div class="specialist col-md-2 "> <!-- col-md-offset-2 -->
-					<input type="text" name="specialist" placeholder="Enter Specialist" class="form-control input-group-lg " id="specialist">
+					<input type="text" name="specialist" placeholder="Specialist" class="form-control input-group-lg " id="specialist">
 				</div>
 				<div class="form-group col-md-6">
 				  <textarea placeholder="Enter Precautions" name="precaution" class="form-control" rows="5" id="precaution"></textarea>
 				</div>
 			</div>
 		</div>
+</div>
 
 
 
 		<div class="container main_sym vertical-gap">
+		<div class="jumbotron" style="background-color: transparent; border: 2px solid black;">
 			<div class=" row container">
 				<h4>Symptom Details</h4>
 			</div>
@@ -59,10 +62,10 @@
 			<div class=" add_sym">
 				<div class="row">
 					<div class="col-md-2 ">
-						<input type="text" placeholder="Enter Symptom Name" class="form-control input-group-lg" id="sname">
+						<input type="text" placeholder="Symptom" class="form-control input-group-lg" id="sname">
 					</div>
 					<div class="checkbox col-md-2">
-							<label><input id="mycheck" type="checkbox"  value="">Range Input</label>
+							<label><input id="mycheck" type="checkbox"  value="">Range</label>
 				 </div>
 					<div class="col-md-2 ">
 						<input type="number"  placeholder="No." class="form-control input-group-lg" id="no">
@@ -76,6 +79,7 @@
 				</div>
 			</div>
 		</div>
+</div>
 
 		<div id="add_here" class="container">
 
@@ -91,11 +95,9 @@
 
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" id="modal_button" data-target="#myModal">Open Modal</button>
 
-  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -111,6 +113,6 @@
       
     </div>
   </div>
- 
+		</div>
 </body>
 </html>

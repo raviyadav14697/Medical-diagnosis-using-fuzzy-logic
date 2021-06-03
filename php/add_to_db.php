@@ -8,15 +8,7 @@
   $ar = explode('?',$_POST['str']);
 
   $dname = strtoupper($ar[0]);
-  //echo $dname;
   $did = insertdis($dname,$con, $precaution, $specialist);
-
-
-  // if($did==-1)
-  // {
-  // 	echo "Already exists!";
-  // 	exit();
-  // }
 
   for ($i=1 ; $i<sizeof($ar) ; $i++)
   {
@@ -32,7 +24,6 @@
   	    $sid = insert_in_symptoms($sname,$fv[0],$con,$range_value,$des);
 
   		insert_in_mappings($did,$sid,$fv[1],$wt,$con);
-  		//echo "Inserted Successfuflly!";
   }
 
 
@@ -52,15 +43,12 @@
   	$q1 = "Select max(did) as max from disease";
     $res = mysqli_query($con,$q1);
     $no = 0;
-  	//$no = mysqli_num_rows($res)+1;
     while($row = $res->fetch_array())
     {
       $no = $row['max'] + 1;
     }
-    //echo $str.' '.$no;
   	$query = "Insert into disease (did , dname, specialist, precaution) values('".$no."','".$str."', '".$specialist."', '".$precaution."')";
   	$res = mysqli_query($con,$query);
-  	//echo $no;
   	return $no;
   }
 

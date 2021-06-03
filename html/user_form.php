@@ -3,36 +3,28 @@
 <meta charset="utf-8" />
 <head>
     <title>User Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <script src="../js/jquery.js" type="text/javascript"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/user_form.js"  type="text/javascript"></script>
-
+	<link rel="stylesheet" type="text/css" href="../css/basic style.css">
     <link rel="stylesheet" type="text/css" href="../css/add_disease.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-		<style rel="stylesheet">
-
-				.vertical-gap{
-						margin-top: 40px;
-				}
-
-
-
-		</style>
 
 </head>
 
-<body>
+<body style="background-color: skyblue;">
 
-		<div class="container">
+<div class= "inside2">
 				<div class="alert alert-info">
 						<?php session_start(); ?>
 						<?php echo "Hello, ".$_SESSION['pemail']; ?>
 						<?php if(!isset($_SESSION['pemail'])) header('location:disease_prediction_system.php'); ?>
-						<a class=" btn btn-primary col-md-offset-10" href="../php/logout.php" >Logout</a>
+						<a class=" btn btn-danger col-md-offset-10" href="../php/logout.php" >Logout</a>
             <h1>Select your symptom levels!</h1>
 				</div>
-		</div>
+
 
 		<div class="container ">
 	    <div id="add_here">
@@ -45,6 +37,7 @@
 				
 		</div>
 	</div>
+</div>
 </body>
 
 </html>

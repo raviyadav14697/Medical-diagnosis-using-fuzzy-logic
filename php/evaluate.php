@@ -104,14 +104,10 @@ function all_dis($con,$hm)
       $dis_arr = array('1'=>0,'2'=>0,'3'=>0);
       while($row2 = $res2->fetch_array())
       {
-          //echo $row2['sid']+"-";
-
           $fvar = explode(',',$row2['fv']);
-          //echo $fvar[$hm[$row2['sid']]]+"\n";
           $dis_arr[$fvar[$hm[$row2['sid']]]] += $row2['weight'];
                     //1,2,3 -->yes,maybe,no
       }
-        //echo "\n";
 
       $sum = $dis_arr[1]+$dis_arr[2]+$dis_arr[3];
 
@@ -121,7 +117,6 @@ function all_dis($con,$hm)
         $dis_arr[2] /= $sum;
         $dis_arr[3] /= $sum;
       }  
-      //file_put_contents('php://stderr', print_r($dis_arr, TRUE));
       $main_arr[$row['dname']] = $dis_arr;
     } 
     return $main_arr;
